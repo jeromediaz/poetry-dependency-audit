@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"pkgname" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project]
+name = "poetry-dependency-audit"
+version = "0.0.1"
+authors = [
+  { name="Jérôme DIAZ", email="jerome_diaz@me.com" },
+]
+description = "A python library to check for vulnerabilities in poetry.lock files."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["poetry", "pypi", "security", "python"]
+dependencies = [
+    "lockfile-parser>=0.2.0",
+    "requests>=2.32.3",
+    "pydantic>=2.10.6"
+]
+
+[project.optional-dependencies]
+dev = ["black", "pip-tools", "pytests"]
+
+[project.urls]
+"Homepage" = "https://github.com/jeromediaz/poetry-dependency-audit"
+"Bug Tracker" = "https://github.com/jeromediaz/poetry-dependency-audit/issues"
