@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "jdiaz-fr-django"
+version = "0.1.0"
+description = ""
+authors = ["Jérôme DIAZ <jerome_diaz@me.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django-cms = "^4.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
