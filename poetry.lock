@@ -864,4 +864,4 @@ dev = ["black", "pip-tools", "pytest"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11"
-content-hash = "447c76193ddc0d3573a3edf4b3796299093e846d188cc5c393ed36eb5695fa00"
+content-hash = "ddb67f4921ac8bf71533751c860568f12088ac950b37ccc58c43d35a1fdb6b64"

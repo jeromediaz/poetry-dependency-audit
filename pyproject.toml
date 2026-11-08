@@ -28,12 +28,12 @@ keywords = ["poetry", "pypi", "security", "python"]
 dependencies = [
     "lockfile-parser>=0.2.0",
     "toml>=0.10.2",
-    "requests>=2.32.3",
+    "requests>=2.33.0",
     "pydantic>=2.10.6"
 ]
 
 [project.optional-dependencies]
-dev = ["black", "pip-tools", "pytest"]
+dev = ["black>=26.10.1", "pip-tools", "pytest"]
 
 [project.urls]
 "Homepage" = "https://github.com/jeromediaz/poetry-dependency-audit"
