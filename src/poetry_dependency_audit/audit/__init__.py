@@ -11,20 +11,20 @@ class Downloads(BaseModel):
 
 class Info(BaseModel):
     author: Optional[str]
-    author_email: str
+    author_email: Optional[str] = None
     bugtrack_url: Optional[str] = None
     classifiers: List[str] = []
     description: str
     description_content_type: Optional[str] = None
     docs_url: Optional[str]
     download_url: Optional[str] = None
-    downloads: Downloads
-    dynamic: None
+    downloads: Optional[Downloads] = None
+    dynamic: Optional[List[str]] = None
     home_page: Optional[str] = None
     keywords: Optional[str] = None
     license: Optional[str] = None
-    license_expression: None
-    license_files: None
+    license_expression: Optional[str] = None
+    license_files: Optional[List[str]] = None
     maintainer: Optional[str] = None
     maintainer_email: Optional[str] = None
     name: str
