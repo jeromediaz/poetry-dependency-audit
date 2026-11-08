@@ -22,7 +22,7 @@ class Info(BaseModel):
     dynamic: None
     home_page: Optional[str] = None
     keywords: Optional[str] = None
-    license: str
+    license: Optional[str] = None
     license_expression: None
     license_files: None
     maintainer: Optional[str] = None
@@ -32,10 +32,10 @@ class Info(BaseModel):
     platform: Optional[str] = None
     project_url: str
     project_urls: Dict[str, str]
-    provides_extra: List[str]
+    provides_extra: Optional[List[str]] = None
     release_url: str
-    requires_dist: List[str]
-    requires_python: str
+    requires_dist: Optional[List[str]] = None
+    requires_python: Optional[str] = None
     summary: str
     version: str
     yanked: bool
@@ -49,7 +49,7 @@ class Digests(BaseModel):
 
 
 class Url(BaseModel):
-    comment_text: str
+    comment_text: Optional[str] = None
     digests: Digests
     downloads: int
     filename: str
@@ -82,3 +82,23 @@ class Package(BaseModel):
     last_serial: int
     urls: List[Url]
     vulnerabilities: List[Vulnerability]
+
+
+class Audit(BaseModel):
+    packages: Dict[str, Package] = Field(default_factory=dict)
+
+    @property
+    def dependencies(self) -> int:
+        return len(self.packages)
+
+    @property
+    def vulnerable_packages(self) -> Dict[str, List[Vulnerability]]:
+        return {
+            name: package.vulnerabilities
+            for name, package in self.packages.items()
+            if package.vulnerabilities
+        }
+
+    @property
+    def vulnerabilities_count(self) -> int:
+        return sum(len(v) for v in self.vulnerable_packages.values())

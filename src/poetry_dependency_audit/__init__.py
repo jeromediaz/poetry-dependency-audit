@@ -1,11 +1,11 @@
 """
-JS Dependency Audit
+Poetry Dependency Audit
 -------
-A library to help perform a security audit check using a yarn (v1) lock file.
+A library to help perform a security audit check using a poetry lock file.
 
 Not intended to be used as a standalone tool, but as part of a system
 periodically checking for vulnerabilities with no need to download all
-npm dependencies.
+python dependencies.
 """
 
 from .lock_file_content import LockFileContent

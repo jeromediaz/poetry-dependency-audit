@@ -11,6 +11,18 @@ periodically checking for vulnerabilities.
 
 ## Usage
 
+```python
+from poetry_dependency_audit.lock_file_content import LockFileContent
+from poetry_dependency_audit.security_audit_request import request_security_audit
+
+lock_file_content = LockFileContent.from_poetry_file("poetry.lock", "pyproject.toml")
+audit_data = request_security_audit(lock_file_content)
+
+print(f"{audit_data.dependencies} dependencies audited")
+for name, vulnerabilities in audit_data.vulnerable_packages.items():
+    for vulnerability in vulnerabilities:
+        print(f"{name}: {vulnerability.id} - {vulnerability.summary}")
+```
 
 ## License
 
